@@ -61,6 +61,11 @@ const SECURITY_HEADERS = [
 ] as const;
 
 const nextConfig: NextConfig = {
+  // Emits a self-contained `.next/standalone` build (traced deps only) so
+  // the production Docker image doesn't need `node_modules` or the source
+  // tree — see Dockerfile.
+  output: "standalone",
+
   /**
    * Cache-Control policy.
    *
